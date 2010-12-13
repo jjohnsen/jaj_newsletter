@@ -123,6 +123,12 @@ $ViewList['newsletter_send'] = array(
                                     'CancelButton' => 'Cancel' ),
     'params' => array( 'NewsletterID' ) );
 
+$ViewList['newsletter_graph'] = array(
+    'script' => 'newsletter/graph.php',
+    'functions' => array( 'admin' ),
+    'default_navigation_part' => 'jaj_newsletternavigationpart',
+    'params' => array( 'ObjectID', 'GraphType' ) );
+
 $ViewList['track'] = array(
     'script' => 'newsletter/track.php',
     'functions' => array( 'manage_subscription' ),

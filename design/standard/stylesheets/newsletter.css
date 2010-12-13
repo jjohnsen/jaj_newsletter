@@ -1,65 +1,64 @@
 body {
-    background: #D7E8EF;
     font-family: arial;
     font-size: 12px;
-    color: #575859;
+    color: #313132;
 }
 
 table {
-    font-size: 100%;
+	font-size: 100%;
+	border-collapse: collapse;
 }
 
 a {
-    color: #F79412;
+	color: #9DB94E;
 }
 
 a img {
-    border: none;
+	border: none;
 }
 
-
-#webversion {
-    padding-bottom: 5px;
-    font-size: 10px;
+.attribute-image p {
+	margin: 0px;
 }
 
-#main {
-    margin-bottom: 20px;
+table td.info {
+	padding: 8px;
+}
+table#inner {
+	border: 1px solid #aaa;
+}
+table tr td#pretext {
+
+	padding: 12px 24px;
+	border-bottom: 1px solid #D6E2B0;
 }
 
-#content {
-    background: #fff;
+table tr td#posttext {
+	padding: 12px 24px;
+	border-top: 1px solid #D6E2B0;
 }
 
-#content td {
-    vertical-align: top;
-/*    border: 1px solid blue;*/
+table tr td.topic {
+	padding: 12px 24px 12px 24px;
+	border-bottom: 1px solid #D6E2B0;
+}
+table tr td.topic .attribute-image {
+	float: left;
+	margin-right: 24px;
 }
 
-#content p {
-    /*border: 1px solid red;*/
-    margin: 0px;
-    padding: 0px;
+table tr td.topic h2,
+table tr td.topic h2 a {
+	margin-top: 0px;
+	text-decoration: none;
+	font-weight: normal;
+	color: #313132;
 }
 
-#content .subject h1 {
-    margin: 0px;
-    font-size: 23px;
-    font-weight: normal;
+div.object-center {
+	text-align: center;
 }
 
-#content .topic td{
-    border-bottom: 1px solid #8BBBCF;
-    padding-bottom: 16px;
-}
-
-#content .topic h2 {
-    font-weight: normal;
-    font-size: 16px;
-    margin: 0px;
-    margin-bottom: 8px;
-}
-
-#content .topic .imageright {
-    float: right;
+div.object-right {
+	float: right;
 }

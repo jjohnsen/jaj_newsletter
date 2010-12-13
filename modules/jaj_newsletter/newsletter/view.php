@@ -12,7 +12,8 @@ if ( !$node || !$node->canRead() )
 $tabs = array( 
 	'details' => 'Details',
 	'preview_html' => 'Preview HTML',
-	'preview_text' => 'Preview Text'
+	'preview_text' => 'Preview Text',
+	'activity' => "Activity"
 );
 
 $selected_tab = ( array_key_exists( $Params['Tab'], $tabs) ? $Params['Tab'] : 'details' ); 

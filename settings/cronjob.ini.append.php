@@ -7,4 +7,8 @@ ExtensionDirectories[]=jaj_newsletter
 Scripts[]
 Scripts[]=jajnewsletter.php
 
+[CronjobPart-jajnewlsetter_bounce]
+Scripts[]
+Scripts[]=jajnewsletter_bounce.php
+
 */?>

@@ -1,4 +1,5 @@
 <?php
+	$cli->output( 'Delivering newsletters ');
 	// Fetch settings
 	$newsletter_ini = eZINI::instance( 'jaj_newsletter.ini' );
 	$site_ini 		= eZINI::instance( 'site.ini' );
@@ -19,7 +20,7 @@
 	);
 	
 	if( !$batch_limit )
-		$batch_limit = 200;
+		$batch_limit = 1;
 	
 	$pendingNewsletters = eZContentObjectTreeNode::subTreeByNodeID( array(
 		'Limit' 			=> 10,
@@ -29,7 +30,7 @@
 			array( 'jaj_newsletter/status', '=', 'in progress' )
 		)
 	), $root_node_id );
-	
+
 	foreach( $pendingNewsletters as $newsletter)
 	{
 		$cli->output( 'Delivering newsletter: ' . $newsletter->getName() . ' (ContentObjectID: ' . $newsletter->ContentObjectID . ')' );
@@ -46,7 +47,7 @@
 		foreach( $deliveries as $delivery )
 		{
 			$batch_limit--;
-			$cli->output( 'Generating mail for: ' . $delivery->attribute('email') );
+			$cli->output( 'Generating newsletter for: ' . $delivery->attribute('email') );
 			
 			// Sanity check
 			if( $delivery->attribute('sent') || $delivery->attribute('state') != 'pending' ) {
@@ -65,11 +66,16 @@
 			
 			if( $return_var != 0) {
 				$cli->output( "Error executing command: ${cmd}");
-				$cli->output( $output );
+				$cli->output( var_dump( $output ) );
 				continue;	
 			}
 			unset($output);
-			
+
+			if( !stripos( $html,  "unsubscribe" ) ) {
+				$cli->output( "Did not find unsubscribe url" );
+				continue;
+			}
+						
 			// Genereate plain text mail
 			$cmd = "/usr/local/bin/premailer -r --mode txt " . escapeshellarg($url) . "2>&1";
 			
@@ -78,7 +84,7 @@
 			
 			if( $return_var != 0) {
 				$cli->output( "Error executing command: ${cmd}");
-				$cli->output( $output );
+				$cli->output( var_dump( $output ) );
 				continue;	
 			}
 			unset($output);
@@ -97,10 +103,8 @@
 			//$mail->addTo( new ezcMailAddress( 'jan.age.johnsen@gmail.com', '', $charset ) );
 			$mail->setHeader( "Reply-To", $reply_email->__toString(), $charset );
 			
-			$cli->output( 'Building mail for: ' . $delivery->attribute('email') );
 			$mail->build();			
-			
-			$cli->output( 'Sending mail to: ' . $delivery->attribute('email') );
+
 			try {
 				$mail_transport->send( $mail );
 			}

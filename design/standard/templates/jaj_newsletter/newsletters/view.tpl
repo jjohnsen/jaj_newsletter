@@ -83,12 +83,17 @@
 			</div>
 		</div>
 		{elseif $selected_tab|eq('preview_html')}
-			<iframe class="tab-content selected" style="height: 20em" src={concat('/jaj_newsletter/preview/', $node.main_node_id)|ezurl()} width="100%"></iframe>
+			<iframe class="tab-content selected" style="height: 20em" src={concat('/jaj_newsletter/preview/', $node.main_node_id)|ezurl()} width="100%"></iframe>			
 		{elseif $selected_tab|eq('preview_text')}
 			<iframe class="tab-content selected" style="height: 20em" src={concat('/jaj_newsletter/preview/', $node.main_node_id, '/(mode)/text')|ezurl()} width="100%"></iframe>
-		{/if}
+		{elseif $selected_tab|eq('activity')}
+		<div class="tab-content selected">
+			<div class="block">
+				<embed src={concat('/jaj_newsletter/newsletter_graph/', $node.id)|ezurl()} width="400" height="240" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" /> 
+			</div>
+		</div>
+		{/if}			
 	</div>
-	
 	<div class="controllbar">
 		<div class="button-left">
 			<div class="block">
