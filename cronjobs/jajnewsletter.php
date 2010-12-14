@@ -22,6 +22,9 @@
 	if( !$batch_limit )
 		$batch_limit = 1;
 	
+	$time_limit = 60 * 10; // 10 minutes, should be lover than cron job
+	$start_time = time();
+	
 	$pendingNewsletters = eZContentObjectTreeNode::subTreeByNodeID( array(
 		'Limit' 			=> 10,
 		'ClassFilterType' 	=> 'include',
@@ -46,6 +49,8 @@
 
 		foreach( $deliveries as $delivery )
 		{
+
+					
 			$batch_limit--;
 			$cli->output( 'Generating newsletter for: ' . $delivery->attribute('email') );
 			
@@ -100,7 +105,6 @@
 		
 			$mail->from = $from_email;
 			$mail->addTo( new ezcMailAddress( $delivery->attribute('email'), '', $charset ) );
-			//$mail->addTo( new ezcMailAddress( 'jan.age.johnsen@gmail.com', '', $charset ) );
 			$mail->setHeader( "Reply-To", $reply_email->__toString(), $charset );
 			
 			$mail->build();			
@@ -114,7 +118,15 @@
 
 			$delivery->setAttribute('state', 'sent');
 			$delivery->setAttribute('sent', time());
-			$delivery->store();			
+			$delivery->store();
+
+			// Check time limit
+			$time = time() - $start_time;
+					
+			if( $time > $time_limit ) {
+				$cli->output( 'Time Limit existed. Stopping delivery');
+				break 2; // Break out of both loops
+			}			
 		}
 			
 		
