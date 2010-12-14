@@ -10,7 +10,7 @@ table {
 }
 
 a {
-	color: #9DB94E;
+	color: #53b147;
 }
 
 a img {
@@ -22,34 +22,42 @@ a img {
 }
 
 table td.info {
-	padding: 8px;
+	/*padding: 8px;*/
 }
-table#inner {
-	border: 1px solid #aaa;
-}
-table tr td#pretext {
 
+table#inner {
+	border: 3px solid #585858;
+}
+table tr td#header-text {
+	background: #585858;
+	color: #fff;
+	font-weight: bold;
 	padding: 12px 24px;
-	border-bottom: 1px solid #D6E2B0;
+}
+
+table tr td#pretext {
+	padding: 12px;
+	border-bottom: 1px solid #787a7d;
 }
 
 table tr td#posttext {
-	padding: 12px 24px;
-	border-top: 1px solid #D6E2B0;
+	padding: 0px 12px;
+	border-top: 1px solid #787a7d;
 }
 
 table tr td.topic {
-	padding: 12px 24px 12px 24px;
-	border-bottom: 1px solid #D6E2B0;
+	padding: 12px 12px 12px 12px;
+	border-bottom: 1px solid #787a7d;
 }
 table tr td.topic .attribute-image {
 	float: left;
-	margin-right: 24px;
+	margin-right: 12px;
 }
 
 table tr td.topic h2,
 table tr td.topic h2 a {
 	margin-top: 0px;
+	margin-bottom: 0px;
 	text-decoration: none;
 	font-weight: normal;
 	color: #313132;
@@ -61,4 +69,10 @@ div.object-center {
 
 div.object-right {
 	float: right;
+	margin-left: 12px;	
+}
+
+div.object-left {
+	float: left;
+	margin-right: 12px;
 }

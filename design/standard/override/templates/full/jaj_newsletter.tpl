@@ -42,8 +42,10 @@
                 		</td>
                 	</tr>
                 	<tr>
-                		<td>
-                			<img src={'images/newsletter_header.gif'|ezdesign()} alt="Nyhetsbrev" title="Nyhetsbrev" />
+                		<td id="header-text">
+                			Nyhetsbrev
+                			{* <img src={'images/newsletter_header.gif'|ezdesign()} alt="Nyhetsbrev" title="Nyhetsbrev" /> *}
+                			
                 		</td>
                 	</tr>
                 	{if $node.data_map.pretext.has_content}
