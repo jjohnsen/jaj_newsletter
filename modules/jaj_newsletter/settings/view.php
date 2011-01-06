@@ -40,7 +40,17 @@ $setup["newsletter_settings_ok"] = (
 
 // Check for newsletter section
 // And check that newsletter node is assigned to section
-$section = eZSection::fetchByIdentifier("jaj_newsletter");
+//$section = eZSection::fetchByIdentifier("jaj_newsletter");
+
+$sections = eZSection::fetchList();
+
+foreach( $sections as $s ) {
+	if( $s->attribute("identifier") == "jaj_newsletter" ) {
+		$section = $s;
+		break;
+	}
+}
+
 
 if( is_object($newsletter_node) && is_object( $section ) ) {
 	$setup["newsletter_section_ok"] = ( $newsletter_node->SectionID == $section->ID );
