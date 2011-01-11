@@ -495,6 +495,11 @@
 <context>
 	<name>design/admin/jaj_newsletter/subscription</name>
 	<message>
+		<source>Subscribe to newsletter</source>
+		<translation>Meld deg på nyhetsbrev</translation>
+    </message>
+    	
+	<message>
 		<source>Subscribe to %name</source>
 		<translation>Meld deg på %name</translation>
     </message>
@@ -506,6 +511,10 @@
 		<source>Required data is either missing or is invalid</source>
 		<translation>Påkrevd data mangler eller er ugyldig</translation>
     </message>
+	<message>
+		<source>Newsletter</source>
+		<translation>Nyhetsbrev</translation>
+    </message>     
 	<message>
 		<source>Email</source>
 		<translation>E-post</translation>

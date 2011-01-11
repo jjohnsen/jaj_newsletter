@@ -1,19 +1,29 @@
 <?php
 $Module = $Params['Module'];
 
-$ListID = $Params['ListID'];
+
+if( $Params['ListID'] )
+{
+	$ListID = $Params['ListID'];
+	$template = 'design:jaj_newsletter/subscription/new.tpl';
+}
+else if( $Module->actionParameter( 'SubscriptionListID' ) ) 
+{
+	$ListID = $Module->actionParameter( 'SubscriptionListID' );
+	$template = 'design:jaj_newsletter/subscription/new_from_list.tpl';	
+}
+else {
+	$template = 'design:jaj_newsletter/subscription/new_from_list.tpl';	
+}
 
 $list = jajNewsletterSubscriptionList::fetch( $ListID );
 
-if ( !is_object( $list ) )
-{
-    return $Module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
-}
-
 $tpl = eZTemplate::factory();
-$template = 'design:jaj_newsletter/subscription/new.tpl';
+	
+//    return $Module->handleError( eZError::KERNEL_NOT_FOUND, 'kernel' );
 
-if ( $Module->isCurrentAction( 'Subscribe' ) )
+
+if ( $Module->isCurrentAction( 'Subscribe' ) && is_object( $list ) )
 {
 	$name = trim( $Module->actionParameter( 'SubscriptionName' ) );
 	$email = trim( $Module->actionParameter( 'SubscriptionEmail' ) );
@@ -26,7 +36,7 @@ if ( $Module->isCurrentAction( 'Subscribe' ) )
 	{
 		$template = 'design:jaj_newsletter/subscription/deny.tpl';
 	}
-	else if( !$subscription->isValid(&$messages) )
+	else if( !$subscription->isValid($messages) )
 	{
 		$tpl->setVariable( 'is_valid', false );
     	$tpl->setVariable( 'validation_messages', $messages );

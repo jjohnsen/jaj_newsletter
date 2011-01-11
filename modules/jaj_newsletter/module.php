@@ -153,7 +153,8 @@ $ViewList['subscribe'] = array(
     'post_action_parameters' => array( 
     	'Subscribe' => array( 
     		'SubscriptionEmail' => 'SubscriptionEmail',
-    		'SubscriptionName' => 'SubscriptionName'
+    		'SubscriptionName' => 'SubscriptionName',
+    		'SubscriptionListID' => 'SubscriptionListID',    		
     	) 
     ),
     'params' => array( 'ListID' ) );    

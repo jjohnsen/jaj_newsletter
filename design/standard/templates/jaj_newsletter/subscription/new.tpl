@@ -32,13 +32,13 @@
 		<form action={concat("/jaj_newsletter/subscribe/", $list.id )|ezurl} method="post">
 
 		<div class="block">
-			<label for="SubscritionEmail">{'Email'|i18n( 'design/admin/jaj_newsletter/subscription' )}:</label>
-			<input type="text" name="SubscriptionEmail" size="20" maxlength="150" value="{$subscription.email|wash}" />
+			<label for="SubscriptionName">{'Name'|i18n( 'design/admin/jaj_newsletter/subscription' )}:</label>
+			<input type="text" name="SubscriptionName" size="20" maxlength="150" value="{$subscription.name|wash}" />
 		</div>
 		
 		<div class="block">
-			<label for="SubscriptionName">{'Name'|i18n( 'design/admin/jaj_newsletter/subscription' )}:</label>
-			<input type="text" name="SubscriptionName" size="20" maxlength="150" value="{$subscription.name|wash}" />
+			<label for="SubscritionEmail">{'Email'|i18n( 'design/admin/jaj_newsletter/subscription' )}:</label>
+			<input type="text" name="SubscriptionEmail" size="20" maxlength="150" value="{$subscription.email|wash}" />
 		</div>
 		
 		<div class="buttonblock">
