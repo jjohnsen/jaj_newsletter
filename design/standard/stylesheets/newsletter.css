@@ -1,16 +1,23 @@
 body {
-    font-family: arial;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    color: #313132;
+    background: #f5f4f2 url(../images/body-bg.jpg) center center repeat-y; 
+	color: #767572;
 }
 
 table {
-	font-size: 100%;
+	font-family: Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
+	font-size: 12px;
 }
 
 a {
-	color: #53b147;
+	color: #30468E;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #767572;
 }
 
 a img {
@@ -21,33 +28,49 @@ a img {
 	margin: 0px;
 }
 
+p {
+	margin: 8px 0px;
+}
+
 table td.info {
 	/*padding: 8px;*/
 }
 
 table#inner {
-	border: 3px solid #585858;
+	background: #fff;
+	border: none;
 }
+
+table tr td#header {
+	height: 67px;
+}
+
 table tr td#header-text {
-	background: #585858;
+	background: #767572;
 	color: #fff;
-	font-weight: bold;
 	padding: 12px 24px;
 }
 
 table tr td#pretext {
 	padding: 12px;
-	border-bottom: 1px solid #787a7d;
+	border-bottom: 1px solid #e7e5e0;
+}
+
+table tr td#pretext h2,
+table tr td#posttext h2 {
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 0px;
 }
 
 table tr td#posttext {
 	padding: 0px 12px;
-	border-top: 1px solid #787a7d;
+	border-top: 1px solid #e7e5e0;
 }
 
 table tr td.topic {
 	padding: 12px 12px 12px 12px;
-	border-bottom: 1px solid #787a7d;
+	border-bottom: 1px solid #e7e5e0;
 }
 table tr td.topic .attribute-image {
 	float: left;
@@ -56,11 +79,17 @@ table tr td.topic .attribute-image {
 
 table tr td.topic h2,
 table tr td.topic h2 a {
+	font-size: 18px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	text-decoration: none;
 	font-weight: normal;
-	color: #313132;
+	color: #767572;
+}
+
+table tr td.topic .attribute-link a {
+	text-transform: uppercase;
+	font-size: 10px;
 }
 
 div.object-center {

@@ -31,21 +31,24 @@
             </tr>
             {/if}
             
-            <tr>
+            <tr align="left">
                 <td>
                 	<table id="inner" width="100%" border="0" cellspacing="0" cellspadding="0">
                 	<tr>
                 		<td id="header">
+                			
                 			{def $pagedesign=fetch_alias(by_identifier,hash(attr_id,sitestyle_identifier))}
+                				{if and($pagedesign.data_map.newsletter_logo, $pagedesign.data_map.newsletter_logo.has_content)}
+                				{attribute_view_gui attribute=$pagedesign.data_map.newsletter_logo href=ezurl("/") image_class='original'}
+                				{else}
                 				{attribute_view_gui attribute=$pagedesign.data_map.image href=ezurl("/") image_class='original'}
+                				{/if}
                             {undef $pagedesign}
                 		</td>
                 	</tr>
                 	<tr>
                 		<td id="header-text">
                 			Nyhetsbrev
-                			{* <img src={'images/newsletter_header.gif'|ezdesign()} alt="Nyhetsbrev" title="Nyhetsbrev" /> *}
-                			
                 		</td>
                 	</tr>
                 	{if $node.data_map.pretext.has_content}
