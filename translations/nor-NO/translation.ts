@@ -613,6 +613,14 @@
 </context>
 
 <context>
+	<name>design/standard/override/templates/full/jaj_newsletter</name>
+	<message>
+		<source>Having trouble viewing this email?</source>
+		<translation>Har du problemer med å se denne e-posten?</translation>
+    </message>   
+</context>
+
+<context>
 	<name>jaj_newsletter/subscription/mail/confirm</name>
 	<message>
 		<source>Please confirm your subscription to %list</source>
