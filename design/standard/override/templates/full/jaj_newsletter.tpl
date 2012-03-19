@@ -25,7 +25,7 @@
                 <td class="info" align="center">
                     <p>
                         {'Having trouble viewing this email?'|i18n( 'design/standard/override/templates/full/jaj_newsletter' )}
-                        <a href={concat($node.url_alias, $params)|ezurl()}>{'View it in your browser'|i18n( 'design/standard/override/templates/full/jaj_newsletter')}</a>
+                        <a href={concat($node.url_alias, $params)|ezurl()}>{'View in your browser'|i18n( 'design/standard/override/templates/full/jaj_newsletter')}</a>
                     </p>
                </td>
             </tr>

@@ -618,6 +618,18 @@
 		<source>Having trouble viewing this email?</source>
 		<translation>Har du problemer med å se denne e-posten?</translation>
     </message>   
+	<message>
+		<source>View in your browser</source>
+		<translation>Vis i din nettleser</translation>
+    </message>  
+    <message>
+    	<source>To unsubscribe from this newsletter, just click on the following link:</source>
+    	<translation>For å melde deg av dette nyhetsbrevet, klikk følgede lenke</translation>
+    </message>
+    <message>
+    	<source>Newsletter module by:</source>
+    	<translation>Nyhetsbrev modul av</translation>
+    </message>    
 </context>
 
 <context>
